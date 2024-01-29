@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:leaf_lens/controllers/gemini_controller.dart';
 import 'package:leaf_lens/pages/homepage.dart';
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(375,812),
+      builder: (BuildContext context, child) =>GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
     
@@ -30,6 +33,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomePage(),
+    ) ,
     );
   }
 }
