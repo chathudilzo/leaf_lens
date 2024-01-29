@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-int item=2;
+int item=1;
 
 void handleClick(int newItem){
     
