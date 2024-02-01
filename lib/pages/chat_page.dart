@@ -137,7 +137,7 @@ void handleClick(int item){
                                       
                                     ),
                                     
-                                    hintText: 'Ask anything about Nature',
+                                    hintText: 'Ask anything here',
                                     hintStyle: TextStyle(
                                       
                                       color: Colors.white38

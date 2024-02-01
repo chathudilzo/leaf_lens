@@ -15,11 +15,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
 int item=1;
-
+GeminiChatController geminiChatController=Get.find();
 void handleClick(int newItem){
     
     setState(() {
       item=newItem;
+      geminiChatController.streamAnswer.value="";
     }
     );
       

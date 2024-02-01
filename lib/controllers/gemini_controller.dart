@@ -17,21 +17,28 @@ class GeminiChatController extends GetxController{
   RxBool isGenerating=false.obs;
 
 
-    void geminiVisionResponse(String text,XFile file)async{
+    void geminiVisionResponse(String text,XFile file,String? model)async{
       try{
         isLoading.value=true;
         streamAnswer.value='';
+        String quary;
+
+        if (model=='Free'){
+          quary=text;
+        }else{
+          quary='What is the $model in this image';
+        }
         //final ByteData data = await rootBundle.load('assets/leaf.png');
         final File data = File(file.path);
         final Uint8List bytes=data.readAsBytesSync();
           print(bytes);
-        await gemini.textAndImage(text: 'What is this image', images: [bytes]).then((value){
-          streamAnswer.value=value!.content!.parts!.last.toString();
+        await gemini.textAndImage(text: quary, images: [bytes]).then((value){
+          streamAnswer.value=value!.content!.parts!.last.text.toString();
         });
         isLoading.value=false;
         print(streamAnswer);
       }catch(error){
-        streamAnswer.value=error.toString();
+        streamAnswer.value='SOMETHING WENT WRONG TRY AGAIN WITH A DIFFERENT IMAGE';
         print(error);
                 isLoading.value=false;
 

@@ -41,6 +41,7 @@ dependencies:
   flutter_screenutil: 
   loading_animation_widget: 
   image_picker: ^1.0.7
+  cool_dropdown: ^2.1.0
 
 dev_dependencies:
   flutter_test:
