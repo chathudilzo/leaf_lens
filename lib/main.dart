@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:leaf_lens/controllers/gemini_controller.dart';
 import 'package:leaf_lens/pages/homepage.dart';
-
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
 
 void main()async {
@@ -32,7 +32,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home:FlutterSplashScreen.gif(
+
+  gifPath: 'assets/giphy.gif',
+  gifWidth: 200.w,
+  gifHeight: 200.w,  
+  nextScreen: HomePage(),
+  duration: const Duration(milliseconds: 5000),      
+      ) ,
     ) ,
     );
   }
